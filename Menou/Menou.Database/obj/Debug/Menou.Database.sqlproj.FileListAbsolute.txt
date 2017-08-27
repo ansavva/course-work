@@ -1,9 +1,0 @@
-C:\GitHub\projects-and-course-work\Menou\Menou.Database\bin\Debug\Menou.Database.dacpac
-C:\GitHub\projects-and-course-work\Menou\Menou.Database\bin\Debug\Menou.Database.dll
-C:\GitHub\projects-and-course-work\Menou\Menou.Database\bin\Debug\Menou.Database.pdb
-C:\GitHub\projects-and-course-work\Menou\Menou.Database\obj\Debug\Model.xml
-C:\GitHub\projects-and-course-work\Menou\Menou.Database\obj\Debug\refactor.xml
-C:\GitHub\projects-and-course-work\Menou\Menou.Database\obj\Debug\postdeploy.sql
-C:\GitHub\projects-and-course-work\Menou\Menou.Database\obj\Debug\predeploy.sql
-C:\GitHub\projects-and-course-work\Menou\Menou.Database\obj\Debug\Menou.Database.dll
-C:\GitHub\projects-and-course-work\Menou\Menou.Database\obj\Debug\Menou.Database.pdb
