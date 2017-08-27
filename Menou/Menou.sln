@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26730.10
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Menou", "Menou\Menou.csproj", "{A671CB7F-F8E5-4888-AE15-A667267C12A2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Menou", "Menou\Menou.csproj", "{A671CB7F-F8E5-4888-AE15-A667267C12A2}"
+EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "Menou.Database", "Menou.Database\Menou.Database.sqlproj", "{640E2175-A32B-467F-AD15-3E4908458FE1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Menou.Services", "Menou.Services\Menou.Services.csproj", "{50B515B3-5072-485C-88CB-A336C4D60B09}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,16 @@ Global
 		{A671CB7F-F8E5-4888-AE15-A667267C12A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A671CB7F-F8E5-4888-AE15-A667267C12A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A671CB7F-F8E5-4888-AE15-A667267C12A2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{640E2175-A32B-467F-AD15-3E4908458FE1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{640E2175-A32B-467F-AD15-3E4908458FE1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{640E2175-A32B-467F-AD15-3E4908458FE1}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{640E2175-A32B-467F-AD15-3E4908458FE1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{640E2175-A32B-467F-AD15-3E4908458FE1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{640E2175-A32B-467F-AD15-3E4908458FE1}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{50B515B3-5072-485C-88CB-A336C4D60B09}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{50B515B3-5072-485C-88CB-A336C4D60B09}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{50B515B3-5072-485C-88CB-A336C4D60B09}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{50B515B3-5072-485C-88CB-A336C4D60B09}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
