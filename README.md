@@ -1,1 +1,3 @@
-# projects-and-course-work
+Introduction
+-------------------
+The purpose of this repository is to showcase my development skills across platforms in multiple disciplines. In this repository you can find code written in C#, and Python. Projects found in this repository include course work I have completed in both undergraduate, and graduate school. You will also find prototypes I have generated from my own ideas taken from everyday life. Enjoy!
