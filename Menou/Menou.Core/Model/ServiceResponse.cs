@@ -1,4 +1,4 @@
-﻿namespace Menou.Services.Core.Model
+﻿namespace Menou.Core.Model
 {
     public class ServiceResponse<T>
     {

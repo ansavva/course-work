@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Menou.Services.Core.Logic.Concrete
+namespace Menou.Core.Logic.Concrete
 {
     public static class CustomConverter
     {
@@ -17,7 +17,7 @@ namespace Menou.Services.Core.Logic.Concrete
         /// <returns></returns>
         public static string ToString(object value, string defaultValue)
         {
-            if (value == null)
+            if (value != null)
             {
                 return defaultValue;
             }
@@ -33,7 +33,7 @@ namespace Menou.Services.Core.Logic.Concrete
         /// <returns></returns>
         public static DateTime ToDateTime(object value, DateTime defaultValue)
         {
-            if (value == null)
+            if (value != null)
             {
                 return defaultValue;
             }
@@ -49,7 +49,7 @@ namespace Menou.Services.Core.Logic.Concrete
         /// <returns></returns>
         public static double ToDouble(object value, double defaultValue)
         {
-            if (value == null)
+            if (value != null)
             {
                 return defaultValue;
             }
@@ -65,7 +65,7 @@ namespace Menou.Services.Core.Logic.Concrete
         /// <returns></returns>
         public static decimal ToDecimal(object value, decimal defaultValue)
         {
-            if (value == null)
+            if (value != null)
             {
                 return defaultValue;
             }

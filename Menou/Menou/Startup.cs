@@ -1,7 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using Menou.Core.Logic.Concrete;
+using Menou.Core.Logic.Contracts;
+using Menou.Logic.Concrete.Proxies.Internal;
+using Menou.Logic.Contracts.Proxies.Internal;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -29,6 +29,12 @@ namespace Menou
         {
             // Add framework services.
             services.AddMvc();
+
+            // Register IConfiguration instance with ConfigurationBuilder for system configuration.
+            services.AddSingleton<IConfiguration>(Configuration);
+
+            services.AddTransient<IConfigurationSettings, ConfigurationSettings>();
+            services.AddTransient<IRestaurantProxyEngine, RestaurantProxyEngine>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
