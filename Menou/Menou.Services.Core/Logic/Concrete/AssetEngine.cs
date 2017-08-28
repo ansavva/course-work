@@ -8,11 +8,14 @@ namespace Menou.Services.Core.Logic.Concrete
     public class AssetEngine : IAssetEngine
     {
         private readonly IHostingEnvironment _hostingEnvironment;
+        private readonly IConfigurationSettings _configurationSettings;
 
-        public AssetEngine(IHostingEnvironment hostingEnvironment)
+        public AssetEngine(IHostingEnvironment hostingEnvironment, IConfigurationSettings configurationSettings)
         {
             Guard.IsNotNull(hostingEnvironment, "hostingEnvironment");
+            Guard.IsNotNull(configurationSettings, "configurationSettings");
             _hostingEnvironment = hostingEnvironment;
+            _configurationSettings = configurationSettings;
         }
 
         /// <summary>
@@ -26,7 +29,7 @@ namespace Menou.Services.Core.Logic.Concrete
 
             string absoluteFilePath = string.Empty;
 
-            string hostPath = _hostingEnvironment.WebRootPath;
+            string hostPath = _hostingEnvironment.ContentRootPath;
 
             // Try and find the absolute path using reflection (used for Tests project).
             if (string.IsNullOrEmpty(hostPath))
@@ -37,7 +40,7 @@ namespace Menou.Services.Core.Logic.Concrete
             }
             // Try and find the absolute path using IIS.
             {
-                absoluteFilePath = string.Format(@"{bin\{1}", hostPath, relativeFilePath);
+                absoluteFilePath = string.Format(@"{0}\{1}\{2}" , hostPath, _configurationSettings.Settings("BinDirectory"), relativeFilePath);
             }
 
             return absoluteFilePath ?? string.Empty;

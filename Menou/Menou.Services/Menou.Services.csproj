@@ -21,6 +21,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Menou.Services.Core\Menou.Services.Core.csproj" />
+    <ProjectReference Include="..\Menou.Services.Data\Menou.Services.Data.csproj" />
     <ProjectReference Include="..\Menou.Services.Logic\Menou.Services.Logic.csproj" />
   </ItemGroup>
 

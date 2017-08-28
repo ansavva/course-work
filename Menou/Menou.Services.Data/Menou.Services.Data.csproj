@@ -14,4 +14,10 @@
     <ProjectReference Include="..\Menou.Services.Core\Menou.Services.Core.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="Assets\SqlScripts\**\*.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>

@@ -12,9 +12,9 @@ namespace Menou.Services.Data.Concrete.dbo.Menou
     public class RestaurantRepository : IRestaurantRepository
     {
         private readonly IConfigurationSettings _configurationSettings;
-        private readonly ISqlFileReader _fileReader;
+        private readonly ISqlFileReaderEngine _fileReader;
 
-        public RestaurantRepository(IConfigurationSettings configurationSettings, ISqlFileReader fileReader)
+        public RestaurantRepository(IConfigurationSettings configurationSettings, ISqlFileReaderEngine fileReader)
         {
             Guard.IsNotNull(configurationSettings, "configurationSettings");
             Guard.IsNotNull(fileReader, "fileReader");
@@ -31,20 +31,24 @@ namespace Menou.Services.Data.Concrete.dbo.Menou
         {
             Restaurant restaurant = new Restaurant();
 
-            using (SqlConnection connection = new SqlConnection(_configurationSettings.Settings("Menou")))
+            using (SqlConnection connection = new SqlConnection(_configurationSettings.Settings("MenouConnectionString")))
             {
                 using (SqlCommand sqlCommand = new SqlCommand(_fileReader.GetSqlCode("ReadRestaurantById", "Menou")))
                 {
+                    connection.Open();
                     sqlCommand.Connection = connection;
                     sqlCommand.Parameters.Add("@RestaurantId", SqlDbType.Int);
-                    sqlCommand.Parameters["RestaurantId"].Value = restaurantId;
+                    sqlCommand.Parameters["@RestaurantId"].Value = restaurantId;
 
                     using (IDataReader reader = sqlCommand.ExecuteReader())
                     {
-                        restaurant.Id = CustomConverter.ToInt(reader["Id"], -1);
-                        restaurant.Name = CustomConverter.ToString(reader["Name"], string.Empty);
-                        restaurant.CreatedDate = CustomConverter.ToDateTime(reader["CreatedDate"], DateTime.Now);
-                        restaurant.ModifiedDate = CustomConverter.ToDateTime(reader["ModifiedDate"], DateTime.Now);
+                        while (reader.Read())
+                        {
+                            restaurant.Id = CustomConverter.ToInt(reader["Id"], -1);
+                            restaurant.Name = CustomConverter.ToString(reader["Name"], string.Empty);
+                            restaurant.CreatedDate = CustomConverter.ToDateTime(reader["CreatedDate"], DateTime.Now);
+                            restaurant.ModifiedDate = CustomConverter.ToDateTime(reader["ModifiedDate"], DateTime.Now);
+                        }
                     }
                 }
             }

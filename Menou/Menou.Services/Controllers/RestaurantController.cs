@@ -18,7 +18,7 @@ namespace Menou.Services.Controllers
             _restaurantEngine = restaurantEngine;
         }
 
-        // GET api/values/5
+        // GET api/restaurant/5
         [HttpGet("{id}")]
         public ServiceResponse<Restaurant> Get(int id)
         {

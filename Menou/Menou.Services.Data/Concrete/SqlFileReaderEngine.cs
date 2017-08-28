@@ -1,5 +1,6 @@
 ﻿using Menou.Services.Core.Logic.Concrete;
 using Menou.Services.Core.Logic.Contracts;
+using Menou.Services.Data.Contracts;
 using Microsoft.Extensions.Caching.Memory;
 using System;
 using System.Collections.Generic;
@@ -8,13 +9,13 @@ using System.Linq;
 
 namespace Menou.Services.Data.Concrete
 {
-    public class SqlFileReader
+    public class SqlFileReaderEngine : ISqlFileReaderEngine
     {
         private readonly IConfigurationSettings _configurationSettings;
         private readonly IAssetEngine _assetEngine;
         private readonly IMemoryCache _memoryCache;
 
-        public SqlFileReader(IConfigurationSettings configurationSettings, IAssetEngine assetEngine, IMemoryCache memoryCache)
+        public SqlFileReaderEngine(IConfigurationSettings configurationSettings, IAssetEngine assetEngine, IMemoryCache memoryCache)
         {
             Guard.IsNotNull(configurationSettings, "configurationSettings");
             Guard.IsNotNull(assetEngine, "assetEngine");

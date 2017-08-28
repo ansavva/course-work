@@ -13,9 +13,9 @@ namespace Menou.Services.Data.Concrete.dbo.Menou
     public class MenuItemRepository : IMenuItemRepository
     {
         private readonly IConfigurationSettings _configurationSettings;
-        private readonly ISqlFileReader _fileReader;
+        private readonly ISqlFileReaderEngine _fileReader;
 
-        public MenuItemRepository(IConfigurationSettings configurationSettings, ISqlFileReader fileReader)
+        public MenuItemRepository(IConfigurationSettings configurationSettings, ISqlFileReaderEngine fileReader)
         {
             Guard.IsNotNull(configurationSettings, "configurationSettings");
             Guard.IsNotNull(fileReader, "fileReader");
@@ -32,25 +32,30 @@ namespace Menou.Services.Data.Concrete.dbo.Menou
         {
             List<MenuItem> menuItems = new List<MenuItem>();
 
-            using (SqlConnection connection = new SqlConnection(_configurationSettings.Settings("Menou")))
+            using (SqlConnection connection = new SqlConnection(_configurationSettings.Settings("MenouConnectionString")))
             {
-                using (SqlCommand sqlCommand = new SqlCommand(_fileReader.GetSqlCode("ReadRestaurantById", "Menou")))
+                using (SqlCommand sqlCommand = new SqlCommand(_fileReader.GetSqlCode("ReadMenuItemsByRestaurantId", "Menou")))
                 {
+                    connection.Open();
                     sqlCommand.Connection = connection;
                     sqlCommand.Parameters.Add("@RestaurantId", SqlDbType.Int);
-                    sqlCommand.Parameters["RestaurantId"].Value = restaurantId;
+                    sqlCommand.Parameters["@RestaurantId"].Value = restaurantId;
 
                     using (IDataReader reader = sqlCommand.ExecuteReader())
                     {
-                        MenuItem menuItem = new MenuItem();
+                        while (reader.Read())
+                        {
+                            MenuItem menuItem = new MenuItem
+                            {
+                                Id = CustomConverter.ToInt(reader["Id"], -1),
+                                Title = CustomConverter.ToString(reader["Title"], string.Empty),
+                                Description = CustomConverter.ToString(reader["Description"], string.Empty),
+                                CreatedDate = CustomConverter.ToDateTime(reader["CreatedDate"], DateTime.Now),
+                                ModifiedDate = CustomConverter.ToDateTime(reader["ModifiedDate"], DateTime.Now)
+                            };
 
-                        menuItem.Id = CustomConverter.ToInt(reader["Id"], -1);
-                        menuItem.Title = CustomConverter.ToString(reader["Title"], string.Empty);
-                        menuItem.Description = CustomConverter.ToString(reader["Description"], string.Empty);
-                        menuItem.CreatedDate = CustomConverter.ToDateTime(reader["CreatedDate"], DateTime.Now);
-                        menuItem.ModifiedDate = CustomConverter.ToDateTime(reader["ModifiedDate"], DateTime.Now);
-
-                        menuItems.Add(menuItem);
+                            menuItems.Add(menuItem);
+                        }
                     }
                 }
             }

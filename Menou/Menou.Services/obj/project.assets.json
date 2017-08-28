@@ -10049,6 +10049,7 @@
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v1.1": [
       "Menou.Services.Core >= 1.0.0",
+      "Menou.Services.Data >= 1.0.0",
       "Menou.Services.Logic >= 1.0.0",
       "Microsoft.ApplicationInsights.AspNetCore >= 2.0.0",
       "Microsoft.AspNetCore >= 1.1.2",
@@ -10088,6 +10089,9 @@
           "projectReferences": {
             "C:\\GitHub\\projects-and-course-work\\Menou\\Menou.Services.Logic\\Menou.Services.Logic.csproj": {
               "projectPath": "C:\\GitHub\\projects-and-course-work\\Menou\\Menou.Services.Logic\\Menou.Services.Logic.csproj"
+            },
+            "C:\\GitHub\\projects-and-course-work\\Menou\\Menou.Services.Data\\Menou.Services.Data.csproj": {
+              "projectPath": "C:\\GitHub\\projects-and-course-work\\Menou\\Menou.Services.Data\\Menou.Services.Data.csproj"
             },
             "C:\\GitHub\\projects-and-course-work\\Menou\\Menou.Services.Core\\Menou.Services.Core.csproj": {
               "projectPath": "C:\\GitHub\\projects-and-course-work\\Menou\\Menou.Services.Core\\Menou.Services.Core.csproj"

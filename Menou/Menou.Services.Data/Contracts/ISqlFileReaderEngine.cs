@@ -1,6 +1,6 @@
 ﻿namespace Menou.Services.Data.Contracts
 {
-    public interface ISqlFileReader
+    public interface ISqlFileReaderEngine
     {
         string GetSqlCode(string fileName, string databaseName);
     }
