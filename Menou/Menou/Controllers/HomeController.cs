@@ -4,12 +4,8 @@ namespace Menou.Controllers
 {
     public class HomeController : Controller
     {
+        // GET: /Home/Index
         public IActionResult Index()
-        {
-            return View();
-        }
-
-        public IActionResult Error()
         {
             return View();
         }
