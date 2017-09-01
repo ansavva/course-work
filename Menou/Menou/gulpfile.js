@@ -3,12 +3,20 @@ var config = require('./gulp.config')();
 var del = require('del');
 var plumber = require('gulp-plumber');
 
-gulp.task('default', ['clean-lib'], function () {
+gulp.task('default', ['clean-lib', 'copy-html'], function () {
     log("Copy files from " + config.node_modules + " to " + config.lib);
     return gulp
         .src(config.libraries, {base:"./node_modules"})
         .pipe(plumber())
         .pipe(gulp.dest(config.lib));
+});
+
+gulp.task('copy-html', function () {
+    log("Copy files from " + config.app + " to " + config.approot);
+    return gulp
+        .src(config.app)
+        .pipe(plumber())
+        .pipe(gulp.dest(config.approot));
 });
 
 gulp.task('clean-lib', function() {

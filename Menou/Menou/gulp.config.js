@@ -12,7 +12,9 @@
             base.node_modules + "es6-shim/**/*.js",
             base.node_modules + "systemjs/**/*.js",
             base.node_modules + "rxjs/**/*.js"
-        ]
+        ],
+        approot: base.wwwroot + 'app',
+        app : './app/**/*.html'
     };
 
     return config;         
