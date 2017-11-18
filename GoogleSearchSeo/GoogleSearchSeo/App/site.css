@@ -1,0 +1,73 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Change background color of navigation bar */
+.navbar-inverse {
+    background-color: #3a5068;
+}
+
+/* Change navigation text color */
+.navbar-inverse .navbar-nav > li > a {
+    color: white;
+}
+
+/* Set the heading for the search result */
+.heading {
+    color: #1a0dab;
+    font-size: 18px;
+    font-weight: normal;
+    margin: 0;
+}
+
+/* Set the link for the search result */
+.cite-link {
+    color: #006621;
+    font-style: normal;
+    font-size: 14px;
+    font-weight: normal;
+}
+
+/* Center the text of the element */
+.center-text {
+    text-align: center;
+    padding-top: 14px;
+}
+
+/* Add botto margin level 1 */
+.add-bottom-margin-1 {
+    margin-bottom: 10px;
+}
+
+/* Custom Badge Design */
+.badge-custom {
+    background-color: white;
+    color: #777;
+    font-weight: bold;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.badge-custom-match {
+    background-color: rgb(255, 196, 88);
+    color: #777;
+    font-weight: bold;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+}

@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "noImplicitAny": false,
+    "noEmitOnError": true,
+    "removeComments": false,
+    "sourceMap": true,
+    "target": "es5",
+    "module": "umd",
+    "typeRoots": [ "./node_modules/@types" ],
+    "types": ["jquery"]
+  },
+  "files": ["./node-modules/@types/jquery/index.d.ts"],
+  "exclude": [
+    "node_modules",
+    "wwwroot"
+  ]
+}
