@@ -1,9 +1,0 @@
-{
-	"version": "1.0.0",
-	"name": "apps",
-	"private": true,
-  "devDependencies": {
-    "font-awesome": "4.6.3",
-    "bootstrap-less": "3.3.8"
-  }
-}
